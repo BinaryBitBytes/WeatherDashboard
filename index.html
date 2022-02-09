@@ -16,27 +16,34 @@
         <br>
 
         <article>
-        
-            <div>
-                <aside class="left-box">    
-                <label id="citySearch">Search Weather For Cities</label>
+            <section>
                 <div>
-                <input class="cityForm" type="Search">
+                    <aside class="left-box">    
+                    <label id="citySearch">Search Weather For Cities</label>
+                    <div>
+                    <input class="cityForm" id="citySearchInput" type="Search">
+                    </div>
+                    <input class="button" onclick="search()" id="searchBtn" type="submit" placeholder="Enter City Here">
+                    </aside>
                 </div>
-                <input class="button" type="submit" value="Search">
-                </aside>
-            </div>
+            <section>
 
-            <div>
-            <h2>Header 2</h2>
-                <p class=p1>City</p>
-                <aside class= leftField>
-                <p class=p2>5-Day Forecast
-                </aside>
-            
-            </div>
+            <section>
+                <div>
+                <h2>Cities Searched</h2>
+                    <lh>City</lh>
+                    <li id="listCity"></li>
+                    <aside class= leftField>
+                    <p class=p2>5-Day Forecast
+                    </aside>
+                </div>
+            </section>
         </article>
 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+            crossorigin="anonymous"></script>
+        <script src = "https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
         <script src="./assets/script.js"></script>
     </body>
 

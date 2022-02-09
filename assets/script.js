@@ -1,3 +1,16 @@
+function search(){
+    //var requestDirectGeoUrl= 'http://api.openweathermap.org/geo/1.0/direct?';
+    //var city= ('q='+cityEntered);
+    //var cityEntered= document.getElementById('citySearch').addEventListener(searchBtn, function(){console.log("meow")  ; });
+    //!const list = [''];
+    var citySearched = document.getElementById('citySearchInput').value;
+    console.log(citySearched);
+    //!const cityList = document.querySelector(".listCity");
+    document.getElementById('listCity').append(citySearched);
+    //var list= cityList.appendChild(listNew('listCity'));
+}
+//var citySearched = document.getElementById('citySearch').value;//.addEventListener('submit', function(){console.log("meow")  ; });
+document.getElementById('searchBtn').addEventListener('click', function(){ console.log("hello"); });
 //my api key = 5fbe45de6f75b2400e38d4b9d10635a3
 //location for query
 var requestUrl="http://api.openweathermap.org/geo/1.0/direct?&appid=5fbe45de6f75b2400e38d4b9d10635a3"  // declaring the var  to request the URL needed for the fetch. WRAP URL in QUOTES
@@ -17,6 +30,14 @@ var ROOTURLloc= "http://api.openweathermap.org/geo/1.0/direct?"
 //syntax/ q={city name},{state code},{country code}&limit={limit}&appid={API key}
 var city=;
 var cityName= q=city+state+"&limit=5&appid={API KEY}
+
+*!!!!!!!! EXAMPLE!!!!!!!!!
+*!//let url = new URL('https://example.com?foo=1&bar=2');
+*!//let params = new URLSearchParams(url.search);
+*!//Add a second foo parameter.
+*!//params.append('foo', 4);
+*!//Query string is now: 'foo=1&bar=2&foo=4'
+
 
 // Data for query
 var ROOTURLdata= 'https://api.openweathermap.org/data/2.5/onecall?';
