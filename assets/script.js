@@ -1,7 +1,13 @@
-function search(){
-    //var requestDirectGeoUrl= 'http://api.openweathermap.org/geo/1.0/direct?';
-    //var city= ('q='+cityEntered);
-    //var cityEntered= document.getElementById('citySearch').addEventListener(searchBtn, function(){console.log("meow")  ; });
+function search(cityEntered){
+    //key =&appid=5fbe45de6f75b2400e38d4b9d10635a3
+    /*var ROOTURLdata= 'http://api.openweathermap.org/geo/1.0/direct?' //!'https://api.openweathermap.org/data/2.5/onecall?';
+    var searchUrl =(ROOTURL+searchCityUrl+uvIndexUrl);
+    var searchCityUrl =;
+    var view5dayUrl='&';
+    var currentConditionsUrl=current ;*/
+    
+    //!var reqDirectGeoUrl= 'http://api.openweathermap.org/geo/1.0/direct?';
+    var cityEntered= document.getElementById('citySearch').addEventListener(searchBtn, function(){console.log("meow")  ; });
     //!const list = [''];
     var citySearched = document.getElementById('citySearchInput').value;
     console.log(citySearched);
@@ -10,12 +16,14 @@ function search(){
     //var list= cityList.appendChild(listNew('listCity'));
 }
 //var citySearched = document.getElementById('citySearch').value;//.addEventListener('submit', function(){console.log("meow")  ; });
-document.getElementById('searchBtn').addEventListener('click', function(){ console.log("hello"); });
-//my api key = 5fbe45de6f75b2400e38d4b9d10635a3
+document.getElementById('searchBtn').addEventListener('click', function(){ console.log(citySearched); });
 //location for query
-var requestUrl="http://api.openweathermap.org/geo/1.0/direct?&appid=5fbe45de6f75b2400e38d4b9d10635a3"  // declaring the var  to request the URL needed for the fetch. WRAP URL in QUOTES
-fetch(requestUrl)
-.then(function(response){ //.then means next step
+var requestUrl="http://api.openweathermap.org/geo/1.0/direct?"+citySearched+"&appid=5fbe45de6f75b2400e38d4b9d10635a3";  // declaring the var  to request the URL needed for the fetch. WRAP URL in QUOTES
+var uvIndexUrl = '&daily.uvi';
+var citySearchInput= ('q='+cityEntered);
+var key = '&appid=5fbe45de6f75b2400e38d4b9d10635a3';
+fetch(requestUrl+citySearchInput+uvIndexUrl+key);
+then(function(response){ //.then means next step
     return response.json(); //.json () method is .http and we need to extract json from response
 }) // usong fetch to do fetch request to server and then parse http respnse into json
 .then(function(data){
@@ -39,11 +47,11 @@ var cityName= q=city+state+"&limit=5&appid={API KEY}
 *!//Query string is now: 'foo=1&bar=2&foo=4'
 
 
-// Data for query
-var ROOTURLdata= 'https://api.openweathermap.org/data/2.5/onecall?';
-var searchUrl =(ROOTURL+searchCityUrl+uvIndexUrl);
-var searchCityUrl =;
-var uvIndexUrl = '&daily.uvi';
-var view5dayUrl='&';
-var currentConditionsUrl=current ;
-*/
+// Data for query*/
+
+//TODO:var ROOTURLdata= 'https://api.openweathermap.org/data/2.5/onecall?';
+//TODO:var searchUrl =(ROOTURL+searchCityUrl+uvIndexUrl);
+//TODO:var searchCityUrl =;
+//TODO:var uvIndexUrl = '&daily.uvi';
+//TODO:var view5dayUrl='&';
+//TODO:var currentConditionsUrl=current ;
