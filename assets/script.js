@@ -1,4 +1,4 @@
-function search(cityEntered){
+function search(citySearched){
     //key =&appid=5fbe45de6f75b2400e38d4b9d10635a3
     /*var ROOTURLdata= 'http://api.openweathermap.org/geo/1.0/direct?' //!'https://api.openweathermap.org/data/2.5/onecall?';
     var searchUrl =(ROOTURL+searchCityUrl+uvIndexUrl);
@@ -7,22 +7,31 @@ function search(cityEntered){
     var currentConditionsUrl=current ;*/
     
     //!var reqDirectGeoUrl= 'http://api.openweathermap.org/geo/1.0/direct?';
-    var cityEntered= document.getElementById('citySearch').addEventListener(searchBtn, function(){console.log("meow")  ; });
+    //var cityEntered= document.getElementById('citySearch').addEventListener(searchBtn, function(){console.log("meow")  ; });
+    function getCity(){
+        const city= document.querySelector('input.cityForm').value;
+        let cityString =JSON.stringify(city);
+        console.log(cityString);
+        return cityString;
+    }
+    console.log(getCity());
     //!const list = [''];
     var citySearched = document.getElementById('citySearchInput').value;
+    citySearchedString = JSON.stringify(citySearched)
     console.log(citySearched);
     //!const cityList = document.querySelector(".listCity");
     document.getElementById('listCity').append(citySearched);
+    const list= ['']
     //var list= cityList.appendChild(listNew('listCity'));
 }
 //var citySearched = document.getElementById('citySearch').value;//.addEventListener('submit', function(){console.log("meow")  ; });
 document.getElementById('searchBtn').addEventListener('click', function(){ console.log(citySearched); });
 //location for query
-var requestUrl="http://api.openweathermap.org/geo/1.0/direct?"+citySearched+"&appid=5fbe45de6f75b2400e38d4b9d10635a3";  // declaring the var  to request the URL needed for the fetch. WRAP URL in QUOTES
+var requestUrl="http://api.openweathermap.org/geo/1.0/direct?";  // declaring the var  to request the URL needed for the fetch. WRAP URL in QUOTES
 var uvIndexUrl = '&daily.uvi';
-var citySearchInput= ('q='+cityEntered);
+var citySearchInput= ('q='+getCity);
 var key = '&appid=5fbe45de6f75b2400e38d4b9d10635a3';
-fetch(requestUrl+citySearchInput+uvIndexUrl+key);
+var fetch = fetch(requestUrl+citySearchInput+uvIndexUrl+key);
 then(function(response){ //.then means next step
     return response.json(); //.json () method is .http and we need to extract json from response
 }) // usong fetch to do fetch request to server and then parse http respnse into json
