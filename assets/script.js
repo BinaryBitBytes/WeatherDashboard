@@ -14,7 +14,7 @@ function search(citySearched){
         console.log(cityString);
         return cityString;
     }
-    console.log(getCity());
+    console.log(getCity()+"AAAA");
     //!const list = [''];
     var citySearched = document.getElementById('citySearchInput').value;
     citySearchedString = JSON.stringify(citySearched)
@@ -29,7 +29,7 @@ document.getElementById('searchBtn').addEventListener('click', function(){ conso
 //location for query
 var requestUrl="http://api.openweathermap.org/geo/1.0/direct?";  // declaring the var  to request the URL needed for the fetch. WRAP URL in QUOTES
 var uvIndexUrl = '&daily.uvi';
-var citySearchInput= ('q='+getCity);
+var citySearchInput= 'q='+citySearchedString;
 var key = '&appid=5fbe45de6f75b2400e38d4b9d10635a3';
 var fetch = fetch(requestUrl+citySearchInput+uvIndexUrl+key);
 then(function(response){ //.then means next step
