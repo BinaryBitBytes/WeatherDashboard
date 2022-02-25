@@ -1,5 +1,6 @@
 var cityName = ''; 
-var que = '';
+var stateName= '';
+var que = 'Atlanta';
 function search(citySearched){
     //key =&appid=5fbe45de6f75b2400e38d4b9d10635a3
     /*var ROOTURLdata= 'http://api.openweathermap.org/geo/1.0/direct?' //!'https://api.openweathermap.org/data/2.5/onecall?';
@@ -18,7 +19,7 @@ function search(citySearched){
     }
 
     getCity();
-    console.log(getCity()+"AAAA");
+    console.log(getCity());
     //!const list = [''];
     var citySearched = document.getElementById('citySearchInput').value;
     //citySearchedString = JSON.stringify(citySearched)
@@ -35,16 +36,23 @@ document.getElementById('searchBtn').addEventListener('click', function(){ conso
 var container= document.getElementById('');
 var searchButton = document.getElementById('searchBtn');
 
+
+//! This function getApi builds our URL query for the api call. 
 function getApi(){ //
-    var requestUrl='http://api.openweathermap.org/geo/1.0/direct?'  // declaring the var  to request the URL needed for the fetch. WRAP URL in QUOTES
-    var uvIndexUrl = '&daily.uvi';
-    var citySearchInput= 'q='+que;
+    //!This function uses requestUrl to utilize the base url for geocoding part of the weather api
+    var requestUrl='https://api.openweathermap.org/geo/1.0/direct?q='  // declaring the var  to request the URL needed for the fetch. WRAP URL in QUOTES
+    //var uvIndexUrl = '&daily.uvi';
+    //! CURRENTLY: still working with the citySearchInput to get current geo location and append the search from user to define search parameter
+    var citySearchInput= que;
+    //! The key of this function from my account to use calls on the Weather api
     var key = '&appid=5fbe45de6f75b2400e38d4b9d10635a3';
 
-    
-    fetch(requestUrl+citySearchInput+uvIndexUrl+key) //
+    //! this fetch assembles the URL query, as of right now it has 3 parameters: requestUrl [base url], citySearchInput[AKA var que], and the user key
+    fetch(requestUrl+citySearchInput+key) //+uvIndexUrl
+    //! use .then to move into the function(load) && console log load
     .then (function (load){ //
         console.log(load); //
+        
         for (var i=0; i<load.length; i++){ //
             var city= document.createElement()//
             var state= document.createElement()//
