@@ -1,41 +1,10 @@
 var cityName = ''; 
 var stateName= '';
-var que = 'Atlanta';
-function search(citySearched){
-    //key =&appid=5fbe45de6f75b2400e38d4b9d10635a3
-    /*var ROOTURLdata= 'http://api.openweathermap.org/geo/1.0/direct?' //!'https://api.openweathermap.org/data/2.5/onecall?';
-    var searchUrl =(ROOTURL+searchCityUrl+uvIndexUrl);
-    var searchCityUrl =;
-    var view5dayUrl='&';
-    var currentConditionsUrl=current ;*/
-    
-    //!var reqDirectGeoUrl= 'http://api.openweathermap.org/geo/1.0/direct?';
-    //var cityEntered= document.getElementById('citySearch').addEventListener(searchBtn, function(){console.log("meow")  ; });
-    function getCity(){
-        const city= document.querySelector('input.cityForm').value;
-        let cityString =JSON.stringify(city);
-        console.log(cityString);
-        return cityString;
-    }
-
-    getCity();
-    console.log(getCity());
-    //!const list = [''];
-    var citySearched = document.getElementById('citySearchInput').value;
-    //citySearchedString = JSON.stringify(citySearched)
-    que = citySearched;
-    console.log(citySearched);
-    //!const cityList = document.querySelector(".listCity");
-    document.getElementById('listCity').append(citySearched);
-    cityName =  citySearched;
-    //var list= cityList.appendChild(listNew('listCity'));
-}
-document.getElementById('searchBtn').addEventListener('click', function(){ console.log(cityName); });
-
-
+var que = 'Newnan';
+var citySearched = document.getElementById('citySearchInput').value;
+var cityString= document.querySelector('input.cityForm').value;
 var container= document.getElementById('');
 var searchButton = document.getElementById('searchBtn');
-
 
 //! This function getApi builds our URL query for the api call. 
 function getApi(){ //
@@ -64,6 +33,29 @@ function getApi(){ //
         }
     });
 }
+//Direct Geocoding city Search used in the html assignment onclick line 26 html
+function search(city){
+    //!'https://api.openweathermap.org/data/2.5/onecall?';
+    var city= document.getElementById('citySearch').addEventListener(searchBtn, function(){console.log("meow")  ; });
+    function getCity(){
+        que =JSON.stringify(city);
+        console.log(cityString);
+        return cityString;
+    }
+    getCity();
+    citySearchedString = JSON.stringify(citySearched)
+    citySearched=que; // This creates the relationship to the searched city in que
+    console.log(citySearched);
+    //!const cityList = document.querySelector(".listCity");
+    document.getElementById('listCity').append(citySearched);
+    cityName =  citySearched;
+    //var list= cityList.appendChild(listNew('listCity'));
+}
+
+
+
+
+document.getElementById('searchBtn').addEventListener('click', function(){ console.log(cityName); });
 searchButton.addEventListener('click', getApi());
 
 //units=imperial //For temperature in Fahrenheit and wind speed in miles/hour
